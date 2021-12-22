@@ -26,6 +26,7 @@
     "@turf/inside": "^4.5.2",
     "airrohr-prediction": "^0.2.0",
     "config": "^1.26.1",
+    "dotenv": "^10.0.0",
     "fs-extra": "^3.0.1",
     "german-administrative-areas": "^0.2.0",
     "german-states-bbox": "^0.2.0",
@@ -35,11 +36,10 @@
     "lodash.sortby": "^4.7.0",
     "lodash.uniq": "^4.5.0",
     "node-fetch": "^1.7.1",
-    "twit": "^2.2.9"
+    "twitter-api-v2": "^1.8.0"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "export NODE_ENV=production && node index.js"
+    "start": "node index.js"
   },
   "engines": {
     "node": ">=6"

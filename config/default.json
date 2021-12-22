@@ -1,22 +1,35 @@
 {
-	"regionName": "Berlin",
-	"twitter": {
-		"key": "X",
-		"key_secret": "X",
-		"token": "X",
-		"token_secret": "X"
-	},
+	"regionName": "Stockach",
 	"thresholds": {
-		"PM10": 50,
-		"PM2.5": 25
+		"PM10": 15,
+		"PM2.5": 5
 	},
 	"requestInterval": 5,
 	"notificationInterval": 180,
 	"regions": [
-		"110000000000"
+		"083355006079",
+		"083355006099"
 	],
-	"sensors": [],
+	"sensors": [
+		{
+	  		"id": "56037",
+			"name": "Nellenburg 1"
+      	},
+
+		{
+	  		"id": "64454",
+			"name": "Oberstadt"
+      	},
+		{
+	  		"id": "58384",
+			"name": "Nenzingen"
+      	},
+		{
+		  "id": "67965",
+		  "name": "Nellenburg 2"
+		}
+	],
 	"sensorLimit": 2,
-	"language": "en",
+	"language": "de",
 	"debug": false
 }

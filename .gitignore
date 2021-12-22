@@ -12,3 +12,4 @@ deploy/*
 !deploy/_default
 
 empty.json
+.env
