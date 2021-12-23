@@ -1,8 +1,8 @@
 {
 	"regionName": "Stockach",
 	"thresholds": {
-		"PM10": 15,
-		"PM2.5": 5
+		"PM10": 40,
+		"PM2.5": 20
 	},
 	"requestInterval": 5,
 	"notificationInterval": 180,
