@@ -115,9 +115,19 @@ const checkSensorData = (sensorData) => {
 			let message
 			const link = generateSensorLink(sortedData[sortedData.length-1])
 			if(config.language === 'de'){
-				message = `⚠ Erhöhte Feinstaubbelastung in #${config.regionName}${sensorName}! ${type} ${sortedData[sortedData.length-1].values.expected[type]}µg/m³ ${link ? link : '.'} #Feinstaub #Luftdaten #WHO #PM10 #PM2.5`
+				message =
+			     `⚠ Erhöhte Feinstaubbelastung in #${config.regionName}${sensorName}!
+				  ${type}: ${sortedData[sortedData.length - 1].values.expected[type]}µg/m³ 🛑
+
+				  Karte: ${link ? link : '.'}
+
+				  #Feinstaub #Luftdaten #WHO #PM10 #PM2_5`
 			} else {
-				message = `⚠ Increased fine dust pollution in #${config.regionName}${sensorName}! ${type} ${sortedData[sortedData.length-1].values.expected[type]}µg/m³ ${link ? link : '.'} #FineDust #Luftdaten`
+				message =
+					`⚠ Increased fine dust pollution in #${config.regionName}${sensorName}!
+					${type} ${sortedData[sortedData.length - 1].values.expected[type]}µg/m³
+					${link ? link : '.'}
+					#FineDust #Luftdaten`
 			}
 			if(
 				( !currentIncident[type] || (currentIncident[type] + (config.notificationInterval * 60 * 1000) <= +(new Date())) )
