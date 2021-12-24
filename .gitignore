@@ -13,3 +13,4 @@ deploy/*
 
 empty.json
 .env
+*.json
