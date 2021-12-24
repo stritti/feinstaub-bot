@@ -39,7 +39,7 @@
     "twitter-api-v2": "^1.8.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node --max-old-space-size=2048 index.js"
   },
   "engines": {
     "node": ">=6"
