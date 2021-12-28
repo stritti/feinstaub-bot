@@ -1,5 +1,70 @@
 # feinstaub-bot
 
+Project forked of: https://github.com/juliuste/feinstaub-bot.git
+
+## Installation
+
+```bash
+git clone https://github.com/stritti/feinstaub-bot.git /opt/feinstaub-bot
+sudo chown -R pi:pi /opt/feinstaub-bot
+cd /opt/feinstaub-bot
+npm ci
+```
+
+Copnfigure Twitter API:
+
+Create file `/opt/feinstauib-bot/.env` with the following content:
+
+```js
+TWITTER_API_KEY=xxx
+TWITTER_API_KEY_SECRET=xxx
+TWITTER_ACCESS_TOKEN=xxx
+TWITTER_ACCESS_TOKEN_SECRET=xxx
+```
+
+and see below how to configure sensors.
+
+### Running as a daemon with systemctl
+
+```bash
+# Create a systemctl configuration file
+sudo nano /etc/systemd/system/feinstaub-bot.service
+```
+
+Add following to the file:
+
+```sh
+[Unit]
+Description=feinstaub-bot
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/npm start
+WorkingDirectory=/opt/feinstaub-bot
+StandardOutput=inherit
+# Or use StandardOutput=null if you don't want  messages filling syslog, for more options see systemd.exec(5)
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Verify that the configuration works:
+
+```bash
+# Start Zigbee2MQTT
+sudo systemctl start feinstaub-bot
+
+# Check if it is running
+sudo systemctl status feinstaub-bot
+```
+
+---
+
+## Original Readme
+
 [![dependency status](https://img.shields.io/david/juliuste/feinstaub-bot.svg)](https://david-dm.org/juliuste/feinstaub-bot)
 [![dev dependency status](https://img.shields.io/david/dev/juliuste/feinstaub-bot.svg)](https://david-dm.org/juliuste/feinstaub-bot#info=devDependencies)
 [![license](https://img.shields.io/github/license/juliuste/feinstaub-bot.svg?style=flat)](LICENSE)

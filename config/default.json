@@ -1,5 +1,5 @@
 {
-	"regionName": "Stockach",
+	"regionName": "#Stockach",
 	"thresholds": {
 		"PM10": 40,
 		"PM2.5": 20
@@ -13,7 +13,7 @@
 	"sensors": [
 		{
 	  		"id": "56037",
-			"name": "Nellenburg 1"
+			"name": "Nellenburg-1"
       	},
 
 		{
@@ -26,10 +26,10 @@
       	},
 		{
 		  "id": "67965",
-		  "name": "Nellenburg 2"
+		  "name": "Nellenburg-2"
 		}
 	],
 	"sensorLimit": 2,
 	"language": "de",
-	"debug": false
+	"debug": true
 }

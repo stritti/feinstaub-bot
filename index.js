@@ -96,6 +96,7 @@ const generateSensorLink = (sensor) => {
 }
 
 const checkSensorData = (sensorData) => {
+	const timestamp = new Date()
 	for(let type of ['PM10', 'PM2.5']){
 		const sortedData = sortBy(
 			filter(sensorData, (o) => (o.values[type] || 0) > config.thresholds[type]),
@@ -110,24 +111,30 @@ const checkSensorData = (sensorData) => {
 			sensorNames = sensorNames.filter((o) => !!o)
 
 			let sensorName = ''
-			if(sensorNames.length > 0) sensorName = ': ' + sensorNames.join(', ')
+			if (sensorNames.length > 0) {
+				sensorName = ': ' + sensorNames.join(', ')
+			}
 
 			let message
 			const link = generateSensorLink(sortedData[sortedData.length-1])
 			if(config.language === 'de'){
 				message =
-			     `⚠ Erhöhte Feinstaubbelastung in #${config.regionName}${sensorName}!
-				  ${type}: ${sortedData[sortedData.length - 1].values.expected[type]}µg/m³ 🛑
+`⚠ Erhöhte Feinstaubbelastung in ${config.regionName}${sensorName}!
 
-				  Karte: ${link ? link : '.'}
+${type}: ${sortedData[sortedData.length - 1].values.expected[type]}µg/m³ 🛑 (Messzeit: ${timestamp.toLocaleString()})
 
-				  #Feinstaub #Luftdaten #WHO #PM10 #PM2_5`
+aktuelle Karte: ${link ? link : '.'}
+
+#Feinstaub #Luftdaten #opendata`
 			} else {
 				message =
-					`⚠ Increased fine dust pollution in #${config.regionName}${sensorName}!
-					${type} ${sortedData[sortedData.length - 1].values.expected[type]}µg/m³
-					${link ? link : '.'}
-					#FineDust #Luftdaten`
+`⚠ Increased fine dust pollution in ${config.regionName}${sensorName}!
+
+${type} ${sortedData[sortedData.length - 1].values.expected[type]}µg/m³ (Timestamp: ${timestamp.toLocaleString()})
+
+Map: ${link ? link : '.'}
+
+#FineDust #Luftdaten #opendata`
 			}
 			if(
 				( !currentIncident[type] || (currentIncident[type] + (config.notificationInterval * 60 * 1000) <= +(new Date())) )
