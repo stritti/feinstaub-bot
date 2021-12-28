@@ -31,5 +31,5 @@
 	],
 	"sensorLimit": 2,
 	"language": "de",
-	"debug": true
+	"debug": false
 }
