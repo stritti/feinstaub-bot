@@ -119,11 +119,14 @@ const checkSensorData = (sensorData) => {
 			const link = generateSensorLink(sortedData[sortedData.length-1])
 			if(config.language === 'de'){
 				message =
-`⚠ Erhöhte Feinstaubbelastung in ${config.regionName}${sensorName}!
+`⚠ Erhöhte Feinstaubbelastung in ${config.regionName}${sensorName}
 
-${type}: ${sortedData[sortedData.length - 1].values.expected[type]}µg/m³ 🛑 (Messzeit: ${timestamp.toLocaleString()})
+${type}: ${sortedData[sortedData.length - 1].values.expected[type]}µg/m³ 🛑
+(Messzeit: ${timestamp.toLocaleString()})
 
 aktuelle Karte: ${link ? link : '.'}
+
+Du willst mitmachen? 👉🏼 https://www.luftinfo-stockach.de/
 
 #Feinstaub #Luftdaten #opendata`
 			} else {
