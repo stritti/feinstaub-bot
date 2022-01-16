@@ -31,7 +31,11 @@
 		{
 		  "id": "69301",
 		  "name": "Zollbruck"
-		}
+		},
+          {
+            "id": "69547",
+            "name": "KIGA Kleeblatt"
+          }
 	],
 	"sensorLimit": 2,
 	"language": "de",
